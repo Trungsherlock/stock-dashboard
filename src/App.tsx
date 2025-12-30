@@ -1,4 +1,3 @@
-// src/App.tsx
 import { useEffect, useState } from "react";
 import StockTable from "./components/StockTable";
 import type { Stock } from "./types/stock";
@@ -10,15 +9,10 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Popular stocks to track
   const [stockSymbols, setStockSymbols] = useState<string[]>([
     "AAPL",
     "GOOGL",
     "MSFT",
-    "AMZN",
-    "TSLA",
-    "META",
-    "NVDA",
   ]);
 
   const handleAddStock = async (symbol: string) => {
@@ -62,13 +56,11 @@ function App() {
 
   return (
     <div className="min-h-screen bg-linear-to-br from-gray-50 to-gray-100">
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
-        {/* Header */}
+      <div className="container mx-auto px-4 py-8 max-w-7xl">
         <header className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-2">
             Stock Price Dashboard
           </h1>
-          <p className="text-gray-600">Real-time stock market data</p>
 
           <button
             onClick={() => {
@@ -97,7 +89,6 @@ function App() {
 
         {!loading && <SearchBar onSearch={handleAddStock} />}
 
-        {/* Main Content */}
         <main>
           {loading && (
             <div className="text-center py-12">
@@ -115,11 +106,6 @@ function App() {
 
           {!loading && !error && <StockTable stocks={stocks} />}
         </main>
-
-        {/* Footer */}
-        <footer className="text-center mt-8 text-sm text-gray-500">
-          Data provided by Finnhub API
-        </footer>
       </div>
     </div>
   );

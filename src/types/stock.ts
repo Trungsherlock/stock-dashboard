@@ -19,3 +19,8 @@ export interface FinnhubQuote {
     pc: number;
     t: number;
 }
+
+export interface Suggestion {
+    symbol: string;
+    name: string;
+}
